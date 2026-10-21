@@ -56,7 +56,8 @@ jq '.run.results[] | select(.selected and .status != "passed") | .attempts[-1]
 
    `error.details` holds the facts, `error.source` the line, `failure` the
    `url`, `screen` and `screenshot` artifact ids, and `candidates`; a
-   failed agent step has `turns`; `selected` drops filtered-out tests
+   failed agent step has `turns`, and `observationTruncated: true` when any
+   semantic observation was incomplete; `selected` drops filtered-out tests
    (recorded as `skipped`).
 4. Artifacts, under `.e2e/results/<test>/attempt-<n>/` (`rerun-<n>/attempt-<m>/`
    for a `--last-failed` rerun), beside the
